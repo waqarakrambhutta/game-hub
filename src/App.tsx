@@ -2,14 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import { Button, ButtonGroup, Grid, GridItem, Show } from '@chakra-ui/react'
 import './App.css'
+import NavBar from './components/NavBar';
 
 function App() {
  return (<Grid templateAreas={{
   base: `"nav" "main"`,
   lg:`"nav nav" "aside main"`
  }}>
-  <GridItem area='nav' bg='blue'>Nav</GridItem>
- {/* in this tag we write tags to show on large devices */}
+  <GridItem area='nav' bg='white'><NavBar/></GridItem>
   <Show above='lg'> 
   <GridItem area='aside' bg='orange'>Aside</GridItem>
   </Show>
