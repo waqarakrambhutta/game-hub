@@ -26,7 +26,7 @@ const GameGrid = () => {
           <GameCardContainer>
             <GameCard key={game.id} game={game}></GameCard>
           </GameCardContainer>
-        ))}
+        ))} 
       </SimpleGrid>
     </>
   );
