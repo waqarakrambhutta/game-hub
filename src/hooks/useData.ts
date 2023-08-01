@@ -11,7 +11,7 @@ interface FetchResponse<T>{
 const useData = <T>(endpoint:string,requestConfig?:AxiosRequestConfig,deps?:any[]) =>{
     const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState("");
-    const [Loading,setLoading] = useState(true)
+    const [Loading,setLoading] = useState(false)
     
     useEffect(() => {
         const controller = new AbortController();
@@ -20,7 +20,6 @@ const useData = <T>(endpoint:string,requestConfig?:AxiosRequestConfig,deps?:any[
       .get<FetchResponse<T>>(endpoint,{signal:controller.signal,...requestConfig})
       .then((res) => {
         setData(res.data.results);
-        console.log(res);
         setLoading(false)
       })
       .catch((err) => {
@@ -30,7 +29,7 @@ const useData = <T>(endpoint:string,requestConfig?:AxiosRequestConfig,deps?:any[
       });
 
       return () => controller.abort();
-  },deps ? [...deps]:[]);
+  },deps || []);
 
   return { data, error, Loading }
 }
