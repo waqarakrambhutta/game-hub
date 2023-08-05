@@ -10,7 +10,6 @@ const SearchInput = ({onSearch}:props) => {
 
   const ref = useRef<HTMLInputElement>(null)
 
-  
 
   return (
     <form onSubmit={(event)=>{ 
