@@ -6,3 +6,5 @@ export default axios.create({
     key: "3f0f0f7dccbc43579896269002b7fd6c",
   },
 });
+
+
